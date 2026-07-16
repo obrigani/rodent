@@ -8,16 +8,15 @@ HOST_CC := cc
 HOST_CFLAGS := -g -O2 -pipe
 
 .PHONY: all
-all: $(IMAGE_NAME)-limine.iso
+all: $(IMAGE_NAME)-i386-limine.iso
+	@echo System image with the Limine bootloader built successfully
 
 .PHONY: run
-run: $(IMAGE_NAME)-limine.iso
+run: $(IMAGE_NAME)-i386-limine.iso
 	qemu-system-i386 \
-	-cdrom $(IMAGE_NAME)-limine.iso \
+	-cdrom $(IMAGE_NAME)-i386-limine.iso \
 	$(QEMUFLAGS)
 
-.PHONY: all $(IMAGE_NAME).iso
-	@echo System image with the Limine bootloader built successfully
 
 sysroot/usr/lib/libk.a:
 	make DESTDIR="$(SYSROOT)" -C kernel install-headers
@@ -34,7 +33,7 @@ limine-binary/.built: limine-binary/.downloaded
 	make -C limine-binary
 	touch $@
 
-$(IMAGE_NAME)-limine.iso: sysroot/boot/kernel.elf limine-binary/.built
+$(IMAGE_NAME)-i386-limine.iso: sysroot/boot/kernel.elf limine-binary/.built
 	mkdir -p isodir
 
 	mkdir -p isodir/boot
@@ -50,9 +49,9 @@ $(IMAGE_NAME)-limine.iso: sysroot/boot/kernel.elf limine-binary/.built
 	        -no-emul-boot -boot-load-size 4 -boot-info-table -hfsplus \
 	        -apm-block-size 2048 --efi-boot boot/limine/limine-uefi-cd.bin \
 	        -efi-boot-part --efi-boot-image --protective-msdos-label \
-	        isodir -o $(IMAGE_NAME)-limine.iso
+	        isodir -o $(IMAGE_NAME)-i386-limine.iso
 
-	./limine-binary/limine bios-install $(IMAGE_NAME)-limine.iso
+	./limine-binary/limine bios-install $(IMAGE_NAME)-i386-limine.iso
 
 	rm -fr isodir
 
