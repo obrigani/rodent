@@ -19,18 +19,18 @@ run: $(IMAGE_NAME)-i386-limine.iso
 
 
 sysroot/usr/lib/libk.a:
-	make DESTDIR="$(SYSROOT)" -C kernel install-headers
-	make DESTDIR="$(SYSROOT)" -C libk install
+	make DESTDIR="$(SYSROOT)" -C kernel install-headers $(MAKEFLAGS)
+	make DESTDIR="$(SYSROOT)" -C libk install $(MAKEFLAGS)
 
 sysroot/boot/kernel.elf: sysroot/usr/lib/libk.a
-	make DESTDIR="$(SYSROOT)" -C kernel install
+	make DESTDIR="$(SYSROOT)" -C kernel install $(MAKEFLAGS)
 
 limine-binary/.downloaded:
 	curl -L https://github.com/Limine-Bootloader/Limine/releases/latest/download/limine-binary.tar.gz | gunzip | tar -xf -
 	touch $@
 
 limine-binary/.built: limine-binary/.downloaded
-	make -C limine-binary
+	make -C limine-binary $(MAKEFLAGS)
 	touch $@
 
 $(IMAGE_NAME)-i386-limine.iso: sysroot/boot/kernel.elf limine-binary/.built

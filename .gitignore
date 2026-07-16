@@ -3,3 +3,4 @@ sysroot/
 isodir/
 
 *.iso
+*.log

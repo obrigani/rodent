@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 . ./config
-make
+make clean && time nice make all $MAKEFLAGS | tee latest.log

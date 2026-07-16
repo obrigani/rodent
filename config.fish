@@ -2,10 +2,14 @@
 
 export HOST='i686-elf'
 
+export CPUCORES=(grep -c '^processor' /proc/cpuinfo)
+
 export QEMUFLAGS='-vga virtio'
+export MAKEFLAGS="-j$CPUCORES -l$(math $CPUCORES + 1)"
 
 export CC=$HOST-gcc
 export CFLAGS='-O2 -g'
+export CPPFLAGS=
 
 export AS=$HOST-as
 export AR=$HOST-ar
@@ -24,3 +28,4 @@ if echo "$HOST" | grep -Eq -- '-elf($|-)'
 end
 
 echo 'Config applied'
+echo $MAKEFLAGS
