@@ -8,10 +8,10 @@ HOST_CC := cc
 HOST_CFLAGS := -g -O2 -pipe
 
 .PHONY: all
-all: sysroot/boot/kernel.elf
+all: $(IMAGE_NAME)-limine.iso
 
 .PHONY: run
-run: $(IMAGE_NAME).iso
+run: $(IMAGE_NAME)-limine.iso
 	qemu-system-i386 \
 	-cdrom $(IMAGE_NAME)-limine.iso \
 	$(QEMUFLAGS)
@@ -20,6 +20,7 @@ run: $(IMAGE_NAME).iso
 	@echo System image with the Limine bootloader built successfully
 
 sysroot/usr/lib/libk.a:
+	make DESTDIR="$(SYSROOT)" -C kernel install-headers
 	make DESTDIR="$(SYSROOT)" -C libk install
 
 sysroot/boot/kernel.elf: sysroot/usr/lib/libk.a

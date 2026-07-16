@@ -1,9 +1,10 @@
 #include <kernel/tty.h>
+#include <stdio.h>
 
 void kmain(void)
 {
   init_term();
-  term_print("suka\n");
-  term_print("suka");
-  term_print("suka");
+  puts("sall lox");
+  puts("sall lox");
+  puts("sall lox");
 }

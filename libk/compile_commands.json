@@ -1,0 +1,117 @@
+[
+  {
+    "arguments": [
+      "/home/qust/opt/cross/bin/i686-elf-gcc",
+      "--sysroot=/home/qust/Funland/coda/c/rodent/trunk/sysroot",
+      "-isystem=/usr/include",
+      "-c",
+      "-std=gnu11",
+      "-O2",
+      "-g",
+      "-ffreestanding",
+      "-Wall",
+      "-Wextra",
+      "-D__is_libc",
+      "-Iinclude",
+      "-D__is_libk",
+      "-o",
+      "string/memcmp.libk.o",
+      "string/memcmp.c"
+    ],
+    "directory": "/home/qust/Funland/coda/c/rodent/trunk/libk",
+    "file": "/home/qust/Funland/coda/c/rodent/trunk/libk/string/memcmp.c",
+    "output": "/home/qust/Funland/coda/c/rodent/trunk/libk/string/memcmp.libk.o"
+  },
+  {
+    "arguments": [
+      "/home/qust/opt/cross/bin/i686-elf-gcc",
+      "--sysroot=/home/qust/Funland/coda/c/rodent/trunk/sysroot",
+      "-isystem=/usr/include",
+      "-c",
+      "-std=gnu11",
+      "-O2",
+      "-g",
+      "-ffreestanding",
+      "-Wall",
+      "-Wextra",
+      "-D__is_libc",
+      "-Iinclude",
+      "-D__is_libk",
+      "-o",
+      "string/memcpy.libk.o",
+      "string/memcpy.c"
+    ],
+    "directory": "/home/qust/Funland/coda/c/rodent/trunk/libk",
+    "file": "/home/qust/Funland/coda/c/rodent/trunk/libk/string/memcpy.c",
+    "output": "/home/qust/Funland/coda/c/rodent/trunk/libk/string/memcpy.libk.o"
+  },
+  {
+    "arguments": [
+      "/home/qust/opt/cross/bin/i686-elf-gcc",
+      "--sysroot=/home/qust/Funland/coda/c/rodent/trunk/sysroot",
+      "-isystem=/usr/include",
+      "-c",
+      "-std=gnu11",
+      "-O2",
+      "-g",
+      "-ffreestanding",
+      "-Wall",
+      "-Wextra",
+      "-D__is_libc",
+      "-Iinclude",
+      "-D__is_libk",
+      "-o",
+      "string/memmove.libk.o",
+      "string/memmove.c"
+    ],
+    "directory": "/home/qust/Funland/coda/c/rodent/trunk/libk",
+    "file": "/home/qust/Funland/coda/c/rodent/trunk/libk/string/memmove.c",
+    "output": "/home/qust/Funland/coda/c/rodent/trunk/libk/string/memmove.libk.o"
+  },
+  {
+    "arguments": [
+      "/home/qust/opt/cross/bin/i686-elf-gcc",
+      "--sysroot=/home/qust/Funland/coda/c/rodent/trunk/sysroot",
+      "-isystem=/usr/include",
+      "-c",
+      "-std=gnu11",
+      "-O2",
+      "-g",
+      "-ffreestanding",
+      "-Wall",
+      "-Wextra",
+      "-D__is_libc",
+      "-Iinclude",
+      "-D__is_libk",
+      "-o",
+      "string/memset.libk.o",
+      "string/memset.c"
+    ],
+    "directory": "/home/qust/Funland/coda/c/rodent/trunk/libk",
+    "file": "/home/qust/Funland/coda/c/rodent/trunk/libk/string/memset.c",
+    "output": "/home/qust/Funland/coda/c/rodent/trunk/libk/string/memset.libk.o"
+  },
+  {
+    "arguments": [
+      "/home/qust/opt/cross/bin/i686-elf-gcc",
+      "--sysroot=/home/qust/Funland/coda/c/rodent/trunk/sysroot",
+      "-isystem=/usr/include",
+      "-c",
+      "-std=gnu11",
+      "-O2",
+      "-g",
+      "-ffreestanding",
+      "-Wall",
+      "-Wextra",
+      "-D__is_libc",
+      "-Iinclude",
+      "-D__is_libk",
+      "-o",
+      "string/strlen.libk.o",
+      "string/strlen.c"
+    ],
+    "directory": "/home/qust/Funland/coda/c/rodent/trunk/libk",
+    "file": "/home/qust/Funland/coda/c/rodent/trunk/libk/string/strlen.c",
+    "output": "/home/qust/Funland/coda/c/rodent/trunk/libk/string/strlen.libk.o"
+  }
+]

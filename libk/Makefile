@@ -30,7 +30,11 @@ FREEOBJS = $(ARCH_FREEOBJS) \
 		   string/memcpy.o \
 		   string/memmove.o \
 		   string/memset.o \
-		   string/strlen.o 
+		   string/strlen.o \
+		   stdio/printf.o \
+		   stdio/putchar.o \
+		   stdio/puts.o \
+		   stdlib/abort.o 
 
 HOSTEDOBJS = $(ARCH_HOSTEDOBJS)
 
