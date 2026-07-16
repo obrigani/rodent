@@ -113,5 +113,51 @@
     "directory": "/home/qust/Funland/coda/c/rodent/trunk/libk",
     "file": "/home/qust/Funland/coda/c/rodent/trunk/libk/string/strlen.c",
     "output": "/home/qust/Funland/coda/c/rodent/trunk/libk/string/strlen.libk.o"
+  },
+  {
+    "arguments": [
+      "/home/qust/opt/cross/bin/i686-elf-gcc",
+      "--sysroot=/home/qust/Funland/coda/c/rodent/trunk/sysroot",
+      "-isystem=/usr/include",
+      "-c",
+      "-std=gnu11",
+      "-O2",
+      "-g",
+      "-ffreestanding",
+      "-Wall",
+      "-Wextra",
+      "-D__is_libc",
+      "-Iinclude",
+      "-D__is_libk",
+      "-o",
+      "stdio/printf.libk.o",
+      "stdio/printf.c"
+    ],
+    "directory": "/home/qust/Funland/coda/c/rodent/trunk/libk",
+    "file": "/home/qust/Funland/coda/c/rodent/trunk/libk/stdio/printf.c",
+    "output": "/home/qust/Funland/coda/c/rodent/trunk/libk/stdio/printf.libk.o"
+  },
+  {
+    "arguments": [
+      "/home/qust/opt/cross/bin/i686-elf-gcc",
+      "--sysroot=/home/qust/Funland/coda/c/rodent/trunk/sysroot",
+      "-isystem=/usr/include",
+      "-c",
+      "-std=gnu11",
+      "-O2",
+      "-g",
+      "-ffreestanding",
+      "-Wall",
+      "-Wextra",
+      "-D__is_libc",
+      "-Iinclude",
+      "-D__is_libk",
+      "-o",
+      "stdio/putchar.libk.o",
+      "stdio/putchar.c"
+    ],
+    "directory": "/home/qust/Funland/coda/c/rodent/trunk/libk",
+    "file": "/home/qust/Funland/coda/c/rodent/trunk/libk/stdio/putchar.c",
+    "output": "/home/qust/Funland/coda/c/rodent/trunk/libk/stdio/putchar.libk.o"
   }
 ]
