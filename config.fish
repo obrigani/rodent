@@ -5,11 +5,12 @@ set -gx HOST i686-elf
 set -gx CPUCORES (grep -c '^processor' /proc/cpuinfo)
 
 set -gx QEMUFLAGS '-vga virtio'
+set -gx QEMUFLAGS_SERIAL -nographic
 set -gx MAKEFLAGS "-j$CPUCORES -l$(math $CPUCORES + 1)"
 
 set -gx CC $HOST-gcc
 set -gx CSTANDARD '-std=gnu23'
-set -gx CFLAGS '-O2 -g'
+set -gx CFLAGS '-O2 -g -pedantic -Werror'
 set -gx CPPFLAGS
 
 set -gx AS $HOST-as

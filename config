@@ -5,11 +5,12 @@ export HOST='i686-elf'
 export CPUCORES=`grep -c '^processor' /proc/cpuinfo`
 
 export QEMUFLAGS='-vga virtio'
+export QEMUFLAGS_SERIAL='-nographic'
 export MAKEFLAGS="-j$CPUCORES -l$(($CPUCORES+1))"
 
 export CC=$HOST-gcc
 export CSTANDARD='-std=gnu23'
-export CFLAGS='-O2 -g'
+export CFLAGS='-O2 -g -pedantic -Werror'
 export CPPFLAGS=''
 
 export AS=$HOST-as

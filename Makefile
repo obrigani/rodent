@@ -17,6 +17,10 @@ run: $(IMAGE_NAME)-i386-limine.iso
 	-cdrom $(IMAGE_NAME)-i386-limine.iso \
 	$(QEMUFLAGS)
 
+.PHONY: install-headers
+install-headers:
+	make DESTDIR="$(SYSROOT)" -C kernel install-headers $(MAKEFLAGS)
+	make DESTDIR="$(SYSROOT)" -C libk install-headers $(MAKEFLAGS)
 
 sysroot/usr/lib/libk.a:
 	make DESTDIR="$(SYSROOT)" -C kernel install-headers $(MAKEFLAGS)
@@ -60,7 +64,11 @@ clean:
 	make -C kernel clean
 	make -C libk clean
 	rm -fr sysroot isodir
-	rm -fr *.iso
+	rm -fr *.iso \
+		   *.gz \
+		   *.bz2 \
+		   *.xz \
+		   *.tar
 
 .PHONY: distclean
 distclean:
