@@ -8,6 +8,7 @@ export QEMUFLAGS='-vga virtio'
 export MAKEFLAGS="-j$CPUCORES -l$(($CPUCORES+1))"
 
 export CC=$HOST-gcc
+export CSTANDARD='-std=gnu23'
 export CFLAGS='-O2 -g'
 export CPPFLAGS=''
 

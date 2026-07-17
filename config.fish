@@ -1,30 +1,31 @@
 #!/usr/bin/env fish
 
-export HOST='i686-elf'
+set -gx HOST i686-elf
 
-export CPUCORES=(grep -c '^processor' /proc/cpuinfo)
+set -gx CPUCORES (grep -c '^processor' /proc/cpuinfo)
 
-export QEMUFLAGS='-vga virtio'
-export MAKEFLAGS="-j$CPUCORES -l$(math $CPUCORES + 1)"
+set -gx QEMUFLAGS '-vga virtio'
+set -gx MAKEFLAGS "-j$CPUCORES -l$(math $CPUCORES + 1)"
 
-export CC=$HOST-gcc
-export CFLAGS='-O2 -g'
-export CPPFLAGS=
+set -gx CC $HOST-gcc
+set -gx CSTANDARD '-std=gnu23'
+set -gx CFLAGS '-O2 -g'
+set -gx CPPFLAGS
 
-export AS=$HOST-as
-export AR=$HOST-ar
+set -gx AS $HOST-as
+set -gx AR $HOST-ar
 
-export PREFIX=/usr
-export EXEC_PREFIX=$PREFIX
-export BOOTDIR=/boot
-export LIBDIR=$EXEC_PREFIX/lib
-export INCLUDEDIR=$PREFIX/include
+set -gx PREFIX /usr
+set -gx EXEC_PREFIX $PREFIX
+set -gx BOOTDIR /boot
+set -gx LIBDIR $EXEC_PREFIX/lib
+set -gx INCLUDEDIR $PREFIX/include
 
-export SYSROOT="$(pwd)/sysroot"
-export CC="$CC --sysroot=$SYSROOT"
+set -gx SYSROOT "$(pwd)/sysroot"
+set -gx CC "$CC --sysroot=$SYSROOT"
 
 if echo "$HOST" | grep -Eq -- '-elf($|-)'
-    export CC="$CC -isystem=$INCLUDEDIR"
+    set -gx CC "$CC -isystem=$INCLUDEDIR"
 end
 
 echo 'Config applied'

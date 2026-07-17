@@ -18,18 +18,35 @@ Rodent Operating System 🪤
 
 ## What is rodent?
 Rodent is an x86 (aka ia-32 (aka i386 (aka 686))) Operating System for BIOS machines.
+## How ready is this system for use?
+Not ready.
+### Progress
+| Goal                    | Status                  |
+| ----------------------- | :---------------------: |
+| Text output             | Done (BIOS only)        |
+| GDT                     | Not done (current goal) |
+| Interrupts              | Not done                |
+| Keyboard driver & input | 😿 (Not done)           |
+| Shell                   | Not done                |
+| Filesystem              | Not done                |
+<sub>This list will be updated</sub>
 ## How can I run this thing?
 As mentioned before, it runs on x86 BIOS computers, meaning that it should run on your machine even if it is x86_64, as long as it supports Legacy Boot
 ## How can I get an ISO image of it?
 You can either get an iso in the "Releases" tab, or compile it yourself using the instructions below
 ## Build instructions
 ### Required software
-1. [i686-elf gcc cross-compiler](https://wiki.osdev.org/GCC_Cross-Compiler) (as well as crosscompiled versions of ```as``` and ```ld```)
-2. GNU Make (99.98% that BSD Make will work too but I haven't tested it)
-3. Bourne Again Shell (```bash```)
-4. ```xorriso```, ```gzip```, ```curl``` and ```tar``` for the Limine version
-5. QEMU in order to run the image
-6. (Optional) [Bear](https://github.com/rizsotto/Bear) for code completion if you have ```clangd``` as your LSP
+| Name              | Link                                                                                             | Void Linux package                 |
+| ----------------- | ------------------------------------------------------------------------------------------------ | :--------------------------------: |
+| i686-elf-gcc      | [GCC Cross-compiler Guide](https://wiki.osdev.org/GCC_Cross-Compiler)                            | None                               |
+| i686-elf binutils | [GCC Cross-compiler Guide (with binutils)](https://wiki.osdev.org/GCC_Cross-Compiler)            | None                               |
+| bash              | [GNU FTP Server](https://ftp.gnu.org/gnu/bash/)                                                  | ```bash```                         |
+| xorriso           | [Download from gnu.org (tar.gz)](https://www.gnu.org/software/xorriso/xorriso-1.5.8.pl02.tar.gz) | ```xorriso```                      |
+| gzip              | [GNU FTP Server](https://ftp.gnu.org/gnu/gzip/)                                                  | ```gzip```                         |
+| curl              | [Download from curl.se (Even has a Windows version)](https://curl.se/download.html)              | ```curl```                         |
+| tar               | [GNU FTP Server](https://ftp.gnu.org/gnu/tar/)                                                   | ```tar```                          |
+| QEMU              | [Download from qemu.org](https://www.qemu.org/download/)                                         | ```qemu```, ```qemu-system-i386``` |
+| Bear (optional)   | [Download from Github](https://github.com/rizsotto/Bear)                                         | ```Bear```                         |
 ### Windows
 idk
 ### Linux / UNIX-like (FreeBSD, OpenBSD, MacOS)
