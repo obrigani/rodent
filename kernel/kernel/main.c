@@ -11,4 +11,5 @@ void kmain(void)
   puts("This is free software, and you are welcome to distribute it under the");
   puts("conditions of the GNU General Public License v3.0");
   puts("===============================================================================");
+  puts("Sall lox");
 }

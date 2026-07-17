@@ -1,4 +1,4 @@
-HOSTARCH != ../tt-to-arch $(HOST)
+HOSTARCH != ../scripts/tt-to-arch $(HOST)
 
 CFLAGS? = -O2 -g
 CPPFLAGS? = 

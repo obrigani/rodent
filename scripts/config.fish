@@ -1,6 +1,12 @@
 #!/usr/bin/env fish
 
+# BTW, this script exists only for the Makefiles to function when I use my shell,
+# there is no plan to remake other scripts in fish
+
 set -gx HOST i686-elf
+# Should be either 'limine' or 'grub' (CASE SENSITIVE!!)
+set -gx BOOTLOADER limine
+# set -gx BOOTLOADER 'grub'
 
 set -gx CPUCORES (grep -c '^processor' /proc/cpuinfo)
 

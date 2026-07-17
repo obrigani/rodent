@@ -8,13 +8,13 @@ HOST_CC := cc
 HOST_CFLAGS := -g -O2 -pipe
 
 .PHONY: all
-all: $(IMAGE_NAME)-i386-limine.iso
-	@echo System image with the Limine bootloader built successfully
+all: $(IMAGE_NAME)-i386-$(BOOTLOADER).iso
+	@echo System image with the $(BOOTLOADER) bootloader built successfully
 
 .PHONY: run
-run: $(IMAGE_NAME)-i386-limine.iso
+run: $(IMAGE_NAME)-i386-$(BOOTLOADER).iso
 	qemu-system-i386 \
-	-cdrom $(IMAGE_NAME)-i386-limine.iso \
+	-cdrom $(IMAGE_NAME)-i386-$(BOOTLOADER).iso \
 	$(QEMUFLAGS)
 
 .PHONY: install-headers
@@ -59,16 +59,20 @@ $(IMAGE_NAME)-i386-limine.iso: sysroot/boot/kernel.elf limine-binary/.built
 
 	rm -fr isodir
 
+$(IMAGE_NAME)-i386-grub.iso: sysroot/boot/kernel.elf
+	mkdir -p isodir/boot/grub
+	cp -v sysroot/boot/kernel.elf isodir/boot/kernel.elf
+	cp -v grub.cfg isodir/boot/grub/grub.cfg
+	grub-mkrescue -o $(IMAGE_NAME)-i386-grub.iso isodir
+
+	rm -fr isodir
+	
 .PHONY: clean
 clean:
 	make -C kernel clean
 	make -C libk clean
 	rm -fr sysroot isodir
-	rm -fr *.iso \
-		   *.gz \
-		   *.bz2 \
-		   *.xz \
-		   *.tar
+	rm -fr *.log
 
 .PHONY: distclean
 distclean:

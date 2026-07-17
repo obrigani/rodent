@@ -21,15 +21,16 @@ Rodent is an x86 (aka ia-32 (aka i386 (aka 686))) Operating System for BIOS mach
 ## How ready is this system for use?
 Not ready.
 ### Progress
-| Goal                    | Status                  |
-| ----------------------- | :---------------------: |
-| Text output             | Done (BIOS only)        |
-| GDT                     | Not done (current goal) |
-| Interrupts              | Not done                |
-| Keyboard driver & input | 😿 (Not done)           |
-| Shell                   | Not done                |
-| Filesystem              | Not done                |
-<sub>This list will be updated</sub>
+| Goal                    | Status                           |
+| ----------------------- | :------------------------------: |
+| Text output             | Done (BIOS and serial port only) |
+| GDT                     | Not done (current goal)          |
+| Interrupts              | Not done                         |
+| Keyboard driver & input | 😿 (Not done)                    |
+| Shell                   | Not done                         |
+| Filesystem              | Not done                         |
+
+<sub>This list is not final, it will be updated as I complete the goals listed there</sub>
 ## How can I run this thing?
 As mentioned before, it runs on x86 BIOS computers, meaning that it should run on your machine even if it is x86_64, as long as it supports Legacy Boot
 ## How can I get an ISO image of it?
@@ -40,14 +41,15 @@ You can either get an iso in the "Releases" tab, or compile it yourself using th
 | ----------------- | ------------------------------------------------------------------------------------------------ | :--------------------------------: |
 | i686-elf-gcc      | [GCC Cross-compiler Guide](https://wiki.osdev.org/GCC_Cross-Compiler)                            | None                               |
 | i686-elf binutils | [GCC Cross-compiler Guide (with binutils)](https://wiki.osdev.org/GCC_Cross-Compiler)            | None                               |
-| bash              | [GNU FTP Server](https://ftp.gnu.org/gnu/bash/)                                                  | ```bash```                         |
+| bash              | [Download from GNU FTP Server](https://ftp.gnu.org/gnu/bash/)                                    | ```bash```                         |
 | xorriso           | [Download from gnu.org (tar.gz)](https://www.gnu.org/software/xorriso/xorriso-1.5.8.pl02.tar.gz) | ```xorriso```                      |
-| gzip              | [GNU FTP Server](https://ftp.gnu.org/gnu/gzip/)                                                  | ```gzip```                         |
-| curl              | [Download from curl.se (Even has a Windows version)](https://curl.se/download.html)              | ```curl```                         |
-| tar               | [GNU FTP Server](https://ftp.gnu.org/gnu/tar/)                                                   | ```tar```                          |
+| gzip              | [Download from GNU FTP Server](https://ftp.gnu.org/gnu/gzip/)                                    | ```gzip```                         |
+| curl              | [Download from curl.se (even has a Windows version)](https://curl.se/download.html)              | ```curl```                         |
+| tar               | [Download fron GNU FTP Server](https://ftp.gnu.org/gnu/tar/)                                     | ```tar```                          |
 | QEMU              | [Download from qemu.org](https://www.qemu.org/download/)                                         | ```qemu```, ```qemu-system-i386``` |
+| GRUB (optional)   | [Download from GNU FTP Server](https://ftp.gnu.org/gnu/grub/)                                    | ```grub```,                        |
 | Bear (optional)   | [Download from Github](https://github.com/rizsotto/Bear)                                         | ```Bear```                         |
 ### Windows
 idk
 ### Linux / UNIX-like (FreeBSD, OpenBSD, MacOS)
-Run the ```build``` script inside the project root or alternatively run ```. ./config``` in bash and then run ```make all```. To run the image in QEMU you can use ```make run``` and add necessary flags in the ```config``` file.
+Run ```./build``` while in the project root to build the ISO. To test it you can either use the ```./scripts/run``` script to launch a graphic QEMU session or, alternatively, run the ```./scripts/run-serial``` script to display the console output of the system right inside your terminal via the serial port. You can also edit your preferences (compiler flags, QEMU flags, Makefile multithreading) in the ```config``` file
