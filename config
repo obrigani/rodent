@@ -2,8 +2,8 @@
 
 export HOST='i686-elf'
 # Should be either 'limine' or 'grub' (CASE SENSITIVE!!)
-export BOOTLOADER='limine'
-# export BOOTLOADER='grub'
+# export BOOTLOADER='limine'
+export BOOTLOADER='grub'
 
 export CPUCORES=`grep -c '^processor' /proc/cpuinfo`
 

@@ -24,7 +24,7 @@ Not ready.
 | Goal                    | Status                           |
 | ----------------------- | :------------------------------: |
 | Text output             | Done (BIOS and serial port only) |
-| GDT                     | Not done (current goal)          |
+| GDT                     | Done 🎉                          |
 | Interrupts              | Not done                         |
 | Keyboard driver & input | 😿 (Not done)                    |
 | Shell                   | Not done                         |
