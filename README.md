@@ -25,7 +25,7 @@ Not ready.
 | ----------------------- | :------------------------------: |
 | Text output             | Done (BIOS and serial port only) |
 | GDT                     | Done 🎉                          |
-| Interrupts              | Not done                         |
+| Interrupts              | Done (IDT)                       |
 | Keyboard driver & input | 😿 (Not done)                    |
 | Shell                   | Not done                         |
 | Filesystem              | Not done                         |
