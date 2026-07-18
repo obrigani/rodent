@@ -83,33 +83,31 @@ void gdt_set_entry(int num, uint32_t base, uint32_t limit, uint8_t access,
 
 void init_gdt()
 {
-  puts("GDT Setup...");
+  printf("[LOG] GDT Setup... ");
 
+  // Null Descriptor
   gdt_set_entry(0, 0, 0, 0, 0);
-  puts("Set null descriptor");
 
+  // Kernel Text
   gdt_set_entry(1, 0, 0xFFFFFFFF, 0x9A, 0xCF);
-  puts("Set kernel code segment");
 
+  // Kernel Data
   gdt_set_entry(2, 0, 0xFFFFFFFF, 0x92, 0xCF);
-  puts("Set kernel data segment");
 
+  // Userspace Text
   gdt_set_entry(3, 0x0C800000, USERSPACE_LIMIT, 0xFA, 0xCF);
-  puts("Set user code segment");
 
+  // Userspace Data
   gdt_set_entry(4, 0x0C800000, USERSPACE_LIMIT, 0xF2, 0xCF);
-  puts("Set user data segment");
 
   memset(&tss, 0, sizeof(TSS));
-  puts("Cleaned TSS");
   init_tss();
-  puts("TSS Initialized");
   gdt_set_entry(5, (uint32_t)&tss, sizeof(TSS), 0x89, 0x40);
-  puts("Set TSS dectriptor");
+  puts("OK");
 
   pgdt.limit = (sizeof(gdt) - 1);
   pgdt.location = (uint32_t)&gdt;
-  puts("Loading GDT...");
+  printf("[LOG] Loading GDT... ");
 
   // Load the GDT using inline assembly
   asm volatile(
@@ -129,6 +127,5 @@ void init_gdt()
     : "memory"
   );
   flush_tss();
-  puts("Flushed TSS\nGDT Loaded OK");
-
+  puts("OK");
 }

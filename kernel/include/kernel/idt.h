@@ -15,25 +15,24 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include <kernel/serial.h>
-#include <kernel/tty.h>
-#include <kernel/gdt.h>
-#include <kernel/idt.h>
-#include <stdio.h>
+#pragma once
 
-void kmain(void)
-{
-  init_serial();
-  init_term();
+#include <stdint.h>
 
-  puts("rodent operating system \nCopyright (C) 2026  obrigani team");
-  puts("This program comes with ABSOLUTELY NO WARRANTY;");
-  puts("This is free software, and you are welcome to distribute it under the");
-  puts("conditions of the GNU General Public License v3.0");
-  puts("===============================================================================");
-  
-  init_gdt();
-  init_idt();
-  
-  puts("Sall lox");
-}
+#define IDT_MAX_DESCRIPTORS 256
+
+typedef struct {
+  uint16_t isr_low;
+  uint16_t kernel_cs;
+  uint8_t  reserved;
+  uint8_t  attributes;
+  uint16_t isr_high;
+} __attribute__((packed)) IDT_Entry;
+
+typedef struct {
+  uint16_t limit;
+  uint32_t location;
+} __attribute__((packed)) IDT_Ptr;
+
+void exception_handler(void);
+void init_idt(void);
