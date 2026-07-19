@@ -74,6 +74,11 @@ clean:
 	rm -fr sysroot isodir
 	rm -fr *.log
 
+.PHONY: bear
+bear: clean install-headers sysroot/usr/lib/libk.a
+	bear --output kernel/compile_commands.json -- make -C kernel
+	bear --output libk/compile_commands.json -- make -C libk
+	
 .PHONY: distclean
 distclean:
 	rm -fr limine-binary

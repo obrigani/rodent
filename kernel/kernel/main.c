@@ -21,6 +21,19 @@
 #include <kernel/idt.h>
 #include <stdio.h>
 
+#ifdef __linux__
+#error "Use a cross-compiler, dumbass"
+#endif
+
+#ifdef __WIN_32
+#error "Use a cross-compiler, dumbass"
+#warn "Use a real operating system, dumbass"
+#endif
+
+#ifndef __i386__
+#error "You need a 32bit (i686 (i386)) cross-compiler, dumbass"
+#endif
+
 void kmain(void)
 {
   init_serial();
